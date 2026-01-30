@@ -1,13 +1,16 @@
 from functions.write_file import write_file
 
 
-test_working_directory = "calculator"
-test_files = {
-    "lorem.txt": "wait, this isn't lorem ipsum",
-    "pkg/morelorem.txt": "lorem ipsum dolor sit amet",
-    "/tmp/temp.txt": "this should not be allowed",
-}
+def test():
+    result = write_file("calculator", "lorem.txt", "wait, this isn't lorem ipsum")
+    print(result)
 
-for file, content in test_files.items():
-    result = write_file(test_working_directory, file, content)
-    print(f'Result for "{file}":\n  {result}')
+    result = write_file("calculator", "pkg/morelorem.txt", "lorem ipsum dolor sit amet")
+    print(result)
+
+    result = write_file("calculator", "/tmp/temp.txt", "this should not be allowed")
+    print(result)
+
+
+if __name__ == "__main__":
+    test()

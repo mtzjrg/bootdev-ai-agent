@@ -1,13 +1,20 @@
 from functions.get_files_info import get_files_info
 
 
-test_working_directory = "calculator"
-test_directory = [".", "pkg", "/bin", "../"]
+def test():
+    result = get_files_info("calculator", ".")
+    print("Result for current directory:")
+    print(result)
+    print("")
 
-for dir in test_directory:
-    result = get_files_info(test_working_directory, dir).replace("\n", "\n  ")
-    match dir:
-        case ".":
-            print(f"Result for current directory:\n  {result}")
-        case _:
-            print(f"Result for '{dir}' directory:\n  {result}")
+    result = get_files_info("calculator", "pkg")
+    print("Result for 'pkg' directory:")
+    print(result)
+
+    result = get_files_info("calculator", "../")
+    print("Result for '../' directory:")
+    print(result)
+
+
+if __name__ == "__main__":
+    test()
