@@ -1,5 +1,5 @@
 import os
-from subprocess import run
+import subprocess
 
 from google.genai import types
 
